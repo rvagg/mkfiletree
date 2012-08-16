@@ -1,12 +1,14 @@
 # node-mkfiletree
 Serialize an object to a file/directory tree. Available in npm as *mkfiletree*
 
-Particularly useful for making test fixtures where you need to create a non-trivial tree of files and don't want to have to mock out `fs`.
+Particularly useful for making test fixtures where you need to create a non-trivial tree of files and don't want to have to mock out `fs`. **See [node-readfiletree](https://github.com/rvagg/node-readfiletree) for file tree deserialization.**
 
 ### makeTemp(prefix, tree, callback)
 
 Make a directory & file tree in the system's temporary directory, under a uniquely named subdirectory prefixed with the `prefix` argument.
 The callback will receive an `error` argument and a `dir` telling you the full path to the root directory created for you.
+
+Using both *mkfiletree* and *readfiletree* we can do the following:
 
 ```js
 require('mkfiletree').makeTemp(
@@ -22,14 +24,14 @@ require('mkfiletree').makeTemp(
     'afile.txt': 'file contents'
   },
   function (err, dir) {
-    // dir tells you the root directory that was created
-    // in this instance it will be prefixed with 'testfiles'
-    console.log(dir)
+    require('readfiletree')(dir, function (err, obj) {
+      console.log(obj)
+    })
   }
 )
 ```
 
-Taking the directory created in the above example, we can look at what we've created:
+The directory structre created above looks like the following:
 
 ```
 $ find /tmp/testfiles11240-23530-r7rs3 -type f -exec sh -c "echo '\n{}: ' && cat '{}'" \;
@@ -47,6 +49,21 @@ $ find /tmp/testfiles11240-23530-r7rs3 -type f -exec sh -c "echo '\n{}: ' && cat
       2
       3
 
+```
+
+And the output of the program should be the same as the input to *mkfiletree*:
+
+```js
+{
+  'adir': {
+    'one.txt': '1\n2\n3\n',
+    'two.txt': 'a\nb\nc\n',
+    'deeper': {
+      'depths.txt': 'whoa...'
+    }
+  },
+  'afile.txt': 'file contents'
+}
 ```
 
 ### cleanUp(callback)

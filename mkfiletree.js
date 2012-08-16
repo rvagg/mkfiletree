@@ -1,3 +1,5 @@
+/* Copyright (c) 2012 Rod Vagg <@rvagg> */
+
 var fs = require('fs')
   , path = require('path')
   , temp = require('temp')
