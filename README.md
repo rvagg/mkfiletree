@@ -1,6 +1,8 @@
 # node-mkfiletree
 Serialize an object to a file/directory tree. Available in npm as *mkfiletree*
 
+[![NPM](https://nodei.co/npm/mkfiletree.png?stars&downloads)](https://nodei.co/npm/mkfiletree/)
+
 Particularly useful for making test fixtures where you need to create a non-trivial tree of files and don't want to have to mock out `fs`. **See [node-readfiletree](https://github.com/rvagg/node-readfiletree) for file tree deserialization.**
 
 ### makeTemp(prefix, tree, callback)
