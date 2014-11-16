@@ -1,9 +1,13 @@
-# node-mkfiletree
-Serialize an object to a file/directory tree. Available in npm as *mkfiletree*
+# mkfiletree
 
-[![NPM](https://nodei.co/npm/mkfiletree.png?stars&downloads)](https://nodei.co/npm/mkfiletree/)
+**Serialize an object to a file/directory tree**
 
-Particularly useful for making test fixtures where you need to create a non-trivial tree of files and don't want to have to mock out `fs`. **See [node-readfiletree](https://github.com/rvagg/node-readfiletree) for file tree deserialization.**
+[![NPM](https://nodei.co/npm/mkfiletree.png?downloads=true&downloadRank=true)](https://nodei.co/npm/mkfiletree/)
+[![NPM](https://nodei.co/npm-dl/mkfiletree.png?months=6&height=3)](https://nodei.co/npm/mkfiletree/)
+
+Particularly useful for making test fixtures where you need to create a non-trivial tree of files and don't want to have to mock out `fs`. **See [readfiletree](https://github.com/rvagg/node-readfiletree) for file tree deserialization.**
+
+## API
 
 ### makeTemp(prefix, tree, callback)
 
@@ -85,25 +89,6 @@ Tests can be run with `npm test`. I'm more than happy to receive contributions s
 
 No, there is no sync version, do it async, it's good for your health and contains additional vitamin C, B1, B2 and folate.
 
+## License
 
-*Copyright (c) 2012 [Rod Vagg](https://github.com/rvagg) ([@rvagg](https://twitter.com/rvagg))*
-
-Made available under the MIT licence:
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is furnished
-to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+**mkfiletree** is Copyright (c) 2014 Rod Vagg [@rvagg](https://twitter.com/rvagg) and licenced under the MIT licence. All rights not explicitly granted in the MIT license are reserved. See the included LICENSE.md file for more details.

@@ -2,16 +2,21 @@
   "author": "Rod Vagg @rvagg <rod@vagg.org>",
   "name": "mkfiletree",
   "description": "Make a tree of files and directories from data defined in an object",
-  "keywords": [ "temp", "tree", "test", "serialize" ],
+  "keywords": [
+    "temp",
+    "tree",
+    "test",
+    "serialize"
+  ],
   "version": "0.0.1",
   "main": "mkfiletree.js",
   "scripts": {
     "test": "node tests.js"
   },
   "dependencies": {
-    "temp": "~0.4.0",
-    "async": "~0.1.18",
-    "rimraf": "~2.0.1"
+    "after": "~0.8.1",
+    "rimraf": "~2.2.8",
+    "temp": "~0.8.1"
   },
   "devDependencies": {
     "xregexp": "~1.5.3"
