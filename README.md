@@ -1,5 +1,7 @@
 # mkfiletree
 
+Serialize an object to a file/directory tree. Available in npm as *mkfiletree*
+
 **Serialize an object to a file/directory tree**
 
 [![NPM](https://nodei.co/npm/mkfiletree.png?downloads=true&downloadRank=true)](https://nodei.co/npm/mkfiletree/)
@@ -78,8 +80,7 @@ Clean up any temporary directories created with `makeTemp()` since the last `cle
 
 ### make(root, tree, callback)
 
-Same as `makeTemp() but you specify the exact root path *to be created* which will contain your directory tree. The callback also receives the `error` and `dir` arguments. Directories created with `make()` won't be removed with a `cleanUp()` call.
-
+Same as `makeTemp()` but you specify the exact root path *to be created* which will contain your directory tree. The callback also receives the `error` and `dir` arguments. Directories created with `make()` won't be removed with a `cleanUp()` call.
 
 ## Contributing
 
