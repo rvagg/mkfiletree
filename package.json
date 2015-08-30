@@ -19,7 +19,7 @@
     "temp": "~0.8.1"
   },
   "devDependencies": {
-    "xregexp": "~1.5.3"
+    "xregexp": "~2.0.0"
   },
   "repository": {
     "type": "git",
