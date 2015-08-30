@@ -3,7 +3,7 @@ var fs = require('fs')
   , assert = require('assert')
   , temp = require('temp')
   , rimraf = require('rimraf')
-  , xregexp    = require('xregexp')
+  , xregexp    = require('xregexp').XRegExp
   , mkfiletree = require('./mkfiletree')
 
   , assertFile = function (dir, file, expectedContents) {
