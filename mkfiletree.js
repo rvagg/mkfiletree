@@ -1,95 +1,76 @@
 /* Copyright (c) 2012 Rod Vagg <@rvagg> */
 
-const fs = require('fs')
-const path = require('path')
-const temp = require('temp')
-const rimraf = require('rimraf')
-const after = require('after')
+const fs     = require('fs')
+    , path   = require('path')
+    , temp   = require('temp')
+    , rimraf = require('rimraf')
+    , after  = require('after')
 
-let dirs = []
+
+var dirs = []
+
 
 function makeEntry (dir, key, value, callback) {
-  let p = path.join(dir, key)
+  var p = path.join(dir, key)
 
-  if (typeof value === 'string') {
+  if (typeof value == 'string')
     return fs.writeFile(p, value, 'utf-8', callback)
-  }
-
-  if (typeof value === 'object') {
-    return _make(fs, p, value, callback)
-  }
-
+  
+  if (typeof value == 'object')
+    return make(fs, p, value, callback)
+  
   // huh? perhaps this could be a callable function
   callback()
 }
 
-function _make (fs, dir, data, callback) {
-  fs.mkdir(dir, afterMake)
 
-  function afterMake (err, _dir) {
-    if (err) {
+function make (mod, dir, data, callback) {
+  mod.mkdir(dir, function (err, _dir) {
+    if (err)
       return callback(err)
-    }
 
-    if (_dir) { // _dir if we made it with temp.mkdir, otherwise leave it alone
-      dirs.push(_dir)
-    }
+    if (_dir)
+      dirs.push(_dir) // _dir if we made it with temp.mkdir, otherwise leave it alone
 
-    const entries = Object.keys(data)
-    const done = after(entries.length, (err) => {
-      if (err) {
+    var entries = Object.keys(data)
+      , done    = after(entries.length, onComplete)
+
+    function onComplete (err) {
+      if (err)
         return callback(err)
-      }
 
-      callback(null, path.resolve(_dir || dir)) // return the dir
-    })
+      callback(null, path.resolve(_dir || dir))  // return the dir
+    }
 
-    entries.forEach((k) => {
+    function makeKeyEntry (k) {
       makeEntry(_dir || dir, k, data[k], done)
-    })
-  }
-}
+    }
 
-function makeTemp (prefix, data, callback) {
-  _make(temp, prefix, data, callback)
-}
-
-function make (root, data, callback) {
-  _make(fs, root, data, callback)
+    entries.forEach(makeKeyEntry)
+  })
 }
 
 function cleanUp (callback) {
-  const done = after(dirs.length, (err) => {
+  function onComplete (err) {
     dirs = []
+
     callback(err)
-  })
+  }
+
+  var done = after(dirs.length, onComplete)
 
   dirs.forEach(function (dir) {
     rimraf(dir, done)
   })
 }
 
-function maybePromisify (fn) {
-  function maybePromiseWrap (...args) {
-    if (typeof args[args.length - 1] === 'function') {
-      return fn(...args)
-    }
 
-    return new Promise((resolve, reject) => {
-      args.push((err, data) => {
-        if (err) {
-          return reject(err)
-        }
-        resolve(data)
-      })
-
-      fn(...args)
-    })
-  }
-
-  return maybePromiseWrap
+module.exports.makeTemp = function (prefix, data, callback) {
+  make(temp, prefix, data, callback)
 }
 
-module.exports.makeTemp = maybePromisify(makeTemp)
-module.exports.make = maybePromisify(make)
-module.exports.cleanUp = maybePromisify(cleanUp)
+module.exports.make = function (root, data, callback) {
+  make(fs, root, data, callback)
+}
+
+module.exports.cleanUp = cleanUp
