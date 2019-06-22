@@ -4,39 +4,39 @@ Serialize an object to a file/directory tree. Available in npm as *mkfiletree*
 
 **Serialize an object to a file/directory tree**
 
-[![NPM](https://nodei.co/npm/mkfiletree.png?downloads=true&downloadRank=true)](https://nodei.co/npm/mkfiletree/)
-[![NPM](https://nodei.co/npm-dl/mkfiletree.png?months=6&height=3)](https://nodei.co/npm/mkfiletree/)
+[![NPM](https://nodei.co/npm/mkfiletree.svg)](https://nodei.co/npm/mkfiletree/)
 
 Particularly useful for making test fixtures where you need to create a non-trivial tree of files and don't want to have to mock out `fs`. **See [readfiletree](https://github.com/rvagg/node-readfiletree) for file tree deserialization.**
 
 ## API
 
-### makeTemp(prefix, tree, callback)
+### makeTemp(prefix, tree[, callback])
 
 Make a directory & file tree in the system's temporary directory, under a uniquely named subdirectory prefixed with the `prefix` argument.
-The callback will receive an `error` argument and a `dir` telling you the full path to the root directory created for you.
+
+* If a `callback` is supplied, it will receive an `error` argument and a `dir` telling you the full path to the root directory created for you.
+* If no `callback` is supplied, a `Promise` will be returned which you can `await` on for a `dir` telling you the full path to the root directory created for you.
 
 Using both *mkfiletree* and *readfiletree* we can do the following:
 
 ```js
-require('mkfiletree').makeTemp(
-  'testfiles',
-  {
-    'adir': {
-      'one.txt': '1\n2\n3\n',
-      'two.txt': 'a\nb\nc\n',
-      'deeper': {
-        'depths.txt': 'whoa...'
-      }
-    },
-    'afile.txt': 'file contents'
+const mkfiletree = require('mkfiletree')
+const readfiletree = require('readfiletree')
+
+const directoryContents = {
+  'adir': {
+    'one.txt': '1\n2\n3\n',
+    'two.txt': 'a\nb\nc\n',
+    'deeper': {
+      'depths.txt': 'whoa...'
+    }
   },
-  function (err, dir) {
-    require('readfiletree')(dir, function (err, obj) {
-      console.log(obj)
-    })
-  }
-)
+  'afile.txt': 'file contents'
+}
+
+await mkfiletree.makeTemp('testfiles', directoryContents)
+let obj = await readfiletree(dir)
+console.log(obj)
 ```
 
 The directory structre created above looks like the following:
@@ -74,13 +74,21 @@ And the output of the program should be the same as the input to *mkfiletree*:
 }
 ```
 
-### cleanUp(callback)
+### cleanUp([callback])
 
-Clean up any temporary directories created with `makeTemp()` since the last `cleanUp()` call or the begining of the current process. Callback has an `error` argument if there was a problem deleting the directory & file tree.
+Clean up any temporary directories created with `makeTemp()` since the last `cleanUp()` call or the begining of the current process.
 
-### make(root, tree, callback)
+* If a `callback` is supplied it will be supplied with an `error` argument if there was a problem deleting the directory & file tree.
+* If no `callback` is supplied, a `Promise` will be returned that you can `await` on.
 
-Same as `makeTemp()` but you specify the exact root path *to be created* which will contain your directory tree. The callback also receives the `error` and `dir` arguments. Directories created with `make()` won't be removed with a `cleanUp()` call.
+### make(root, tree[, callback])
+
+Same as `makeTemp()` but you specify the exact root path *to be created* which will contain your directory tree.
+
+* If a `callback` is supplied, it receives the `error` and `dir` arguments.
+* If no `callback` is supplied, a `Promise` will be returned which you can `await` on for a `dir`.
+
+Directories created with `make()` won't be removed with a `cleanUp()` call.
 
 ## Contributing
 
