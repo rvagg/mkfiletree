@@ -14,9 +14,9 @@
     "test": "node tests.js"
   },
   "dependencies": {
-    "after": "~0.8.1",
-    "rimraf": "~2.2.8",
-    "temp": "~0.8.1"
+    "after": "~0.8.2",
+    "rimraf": "~2.6.3",
+    "temp": "~0.9.0"
   },
   "devDependencies": {
     "xregexp": "~2.0.0"
