@@ -13,7 +13,9 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "test": "node tests.js"
+    "test": "node tests.js",
+    "test:ci": "node tests.js",
+    "build": "true"
   },
   "dependencies": {
     "rimraf": "^5.0.1",
