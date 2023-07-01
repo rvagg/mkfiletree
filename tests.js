@@ -1,16 +1,13 @@
 import fs from 'fs/promises'
 import path from 'path'
 import assert from 'assert'
+import { fileURLToPath } from 'url'
 import temp from 'temp'
 import { rimraf } from 'rimraf'
 import xregexp from 'xregexp'
 import * as mkfiletree from './mkfiletree.js'
 
-function __dirname () {
-  // derive __dirname from import.meta.url
-  const url = new URL(import.meta.url)
-  return path.dirname(url.pathname)
-}
+const __dirname = fileURLToPath(path.dirname(import.meta.url))
 
 async function assertFile (dir, file, expectedContents) {
   const contents = await fs.readFile(path.join(dir, file), 'utf-8')
@@ -37,7 +34,7 @@ async function assertTreeFileCount (dir, count) {
 }
 
 async function runTest (asTemp) {
-  const root = asTemp ? temp.dir : __dirname()
+  const root = asTemp ? temp.dir : __dirname
   const name = +new Date() + 'foobar'
   const fixture = {
     foo: 'FOO',
@@ -90,7 +87,7 @@ async function runTest (asTemp) {
   assert.strictEqual(list.length, 1)
   assert.strictEqual(list[0], name)
   // clean up manually
-  await rimraf(path.join(__dirname(), name))
+  await rimraf(path.join(__dirname, name))
 }
 
 const bork = setTimeout(() => {
