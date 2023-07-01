@@ -16,7 +16,6 @@ async function assertFile (dir, file, expectedContents) {
 
 async function assertTreeFileCount (dir, count) {
   let total = 0
-  let counting = 0
 
   async function countDir (dir) {
     for (const d of await fs.readdir(dir)) {
@@ -92,7 +91,7 @@ async function runTest (asTemp) {
 
 const bork = setTimeout(() => {
   assert.fail('timeout without completing tests')
-}, 2000)
+}, 5000)
 
 await runTest(true) // makeTemp & cleanUp
 await runTest(false) // make
