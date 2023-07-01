@@ -10,7 +10,7 @@ Particularly useful for making test fixtures where you need to create a non-triv
 
 ## API
 
-### await makeTemp(prefix, tree[, callback])
+### await makeTemp(prefix, tree)
 
 Make a directory & file tree in the system's temporary directory, under a uniquely named subdirectory prefixed with the `prefix` argument. The returned value will be a `dir` telling you the full path to the root directory created for you.
 
@@ -75,7 +75,7 @@ And the output of the program should be the same as the input to *mkfiletree*:
 
 Clean up any temporary directories created with `makeTemp()` since the last `cleanUp()` call or the begining of the current process.
 
-### async make(root, tree[, callback])
+### async make(root, tree)
 
 Same as `makeTemp()` but you specify the exact root path *to be created* which will contain your directory tree. The returned value will be a `dir` telling you the full path to the root directory created for you.
 
