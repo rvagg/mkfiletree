@@ -1,5 +1,5 @@
 {
-  "author": "Rod Vagg @rvagg <rod@vagg.org>",
+  "author": "Rod Vagg <rod@vagg.org> (https://github.com/rvagg)",
   "name": "mkfiletree",
   "description": "Make a tree of files and directories from data defined in an object",
   "keywords": [
@@ -10,16 +10,17 @@
   ],
   "version": "2.0.0",
   "main": "mkfiletree.js",
+  "type": "module",
+  "license": "MIT",
   "scripts": {
     "test": "node tests.js"
   },
   "dependencies": {
-    "after": "~0.8.2",
-    "rimraf": "~2.6.3",
-    "temp": "~0.9.0"
+    "rimraf": "^5.0.1",
+    "temp": "^0.9.4"
   },
   "devDependencies": {
-    "xregexp": "~2.0.0"
+    "xregexp": "^5.1.1"
   },
   "repository": {
     "type": "git",
