@@ -1,3 +1,15 @@
+## [3.1.0](https://github.com/rvagg/mkfiletree/compare/v3.0.0...v3.1.0) (2026-02-16)
+
+### Features
+
+* dep & CI updates & minor modernisation ([f89aba6](https://github.com/rvagg/mkfiletree/commit/f89aba648144abcc75660bc1e0d5cf1a4b261f8b))
+
+### Trivial Changes
+
+* **deps:** bump actions/checkout from 3 to 4 ([#8](https://github.com/rvagg/mkfiletree/issues/8)) ([524c22e](https://github.com/rvagg/mkfiletree/commit/524c22ea5023c67a12bd4257eb1d3c7328284e09))
+* **deps:** bump actions/setup-node from 3.6.0 to 3.8.1 ([#7](https://github.com/rvagg/mkfiletree/issues/7)) ([4fcca38](https://github.com/rvagg/mkfiletree/commit/4fcca3896383f1cb27851f10cb0e73aa3281e9dc))
+* update repo url ([e9d59f1](https://github.com/rvagg/mkfiletree/commit/e9d59f17bb89e6a0b955b0a059f72743a4eb4eb9))
+
 ## [3.0.0](https://github.com/rvagg/node-mkfiletree/compare/v2.0.0...v3.0.0) (2023-07-01)
 
 
