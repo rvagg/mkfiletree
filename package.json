@@ -40,7 +40,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rvagg/node-mkfiletree.git"
+    "url": "https://github.com/rvagg/mkfiletree.git"
   },
   "release": {
     "branches": [
