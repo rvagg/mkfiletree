@@ -11,20 +11,32 @@
   "version": "3.0.0",
   "main": "mkfiletree.js",
   "type": "module",
+  "exports": "./mkfiletree.js",
+  "engines": {
+    "node": ">=20"
+  },
   "license": "MIT",
   "scripts": {
     "lint": "standard",
-    "test": "npm run lint && node tests.js",
-    "test:ci": "npm run lint && node tests.js",
-    "build": "true"
+    "build": "true",
+    "test:unit": "node --test tests.js",
+    "test": "npm run lint && npm run test:unit"
   },
   "dependencies": {
-    "rimraf": "^5.0.1",
+    "rimraf": "^6.1.3",
     "temp": "^0.9.4"
   },
   "devDependencies": {
-    "standard": "^17.1.0",
-    "xregexp": "^5.1.1"
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^12.0.6",
+    "@semantic-release/npm": "^13.1.4",
+    "@semantic-release/release-notes-generator": "^14.1.0",
+    "conventional-changelog-conventionalcommits": "^9.1.0",
+    "semantic-release": "^25.0.3",
+    "standard": "^17.1.2",
+    "xregexp": "^5.1.2"
   },
   "repository": {
     "type": "git",

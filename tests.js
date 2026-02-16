@@ -1,7 +1,8 @@
-import fs from 'fs/promises'
-import path from 'path'
-import assert from 'assert'
-import { fileURLToPath } from 'url'
+import fs from 'node:fs/promises'
+import path from 'node:path'
+import { test } from 'node:test'
+import assert from 'node:assert'
+import { fileURLToPath } from 'node:url'
 import temp from 'temp'
 import { rimraf } from 'rimraf'
 import xregexp from 'xregexp'
@@ -53,7 +54,6 @@ async function runTest (asTemp) {
   const madeDir = await mkfiletree[asTemp ? 'makeTemp' : 'make'](name, fixture)
   assert(madeDir)
   assert(typeof madeDir === 'string')
-  // dir is appropriately named
   if (asTemp) {
     assert(new RegExp('^' + xregexp.escape(path.join(temp.dir, name)) + '[^\\/]+$').test(madeDir))
   } else {
@@ -62,39 +62,32 @@ async function runTest (asTemp) {
 
   const newList = await fs.readdir(root)
   let list = newList.filter((f) => originalList.indexOf(f) === -1)
-  assert.strictEqual(path.join(root, list[0]), madeDir) // yee haw, we made the dir!
-  // test all files and contents
-  assertFile(madeDir, 'foo', 'FOO')
-  assertFile(madeDir, 'bam/one', '1')
-  assertFile(madeDir, 'bam/two', '2')
-  assertFile(madeDir, 'bam/three/a', 'A')
-  assertFile(madeDir, 'bam/three/b', 'B')
-  assertFile(madeDir, 'bam/three/c', 'A\nB\nC\n')
-  assertFile(madeDir, 'bar', 'BAR')
-  // make sure there are the right number of files in there, no more than expected
+  assert.strictEqual(path.join(root, list[0]), madeDir)
+  await assertFile(madeDir, 'foo', 'FOO')
+  await assertFile(madeDir, 'bam/one', '1')
+  await assertFile(madeDir, 'bam/two', '2')
+  await assertFile(madeDir, 'bam/three/a', 'A')
+  await assertFile(madeDir, 'bam/three/b', 'B')
+  await assertFile(madeDir, 'bam/three/c', 'A\nB\nC\n')
+  await assertFile(madeDir, 'bar', 'BAR')
   await assertTreeFileCount(madeDir, 7)
   await mkfiletree.cleanUp()
 
   const cleanList = await fs.readdir(root)
   list = cleanList.filter((f) => originalList.indexOf(f) === -1)
   if (asTemp) {
-    // cleanup worked, back where we started!
     assert.strictEqual(list.length, 0)
     return
   }
-  // cleanup shouldn't do anything for non-temp dirs
   assert.strictEqual(list.length, 1)
   assert.strictEqual(list[0], name)
-  // clean up manually
   await rimraf(path.join(__dirname, name))
 }
 
-const bork = setTimeout(() => {
-  assert.fail('timeout without completing tests')
-}, 5000)
+test('makeTemp creates tree and cleanUp removes it', async () => {
+  await runTest(true)
+})
 
-await runTest(true) // makeTemp & cleanUp
-await runTest(false) // make
-clearTimeout(bork)
-
-console.log('Running... no assertions means no worries!')
+test('make creates tree at specified root', async () => {
+  await runTest(false)
+})

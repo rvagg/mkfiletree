@@ -1,7 +1,7 @@
 /* Copyright (c) 2012 Rod Vagg <@rvagg> */
 
-import fs from 'fs/promises'
-import path from 'path'
+import fs from 'node:fs/promises'
+import path from 'node:path'
 import temp from 'temp'
 import { rimraf } from 'rimraf'
 
