@@ -1,3 +1,9 @@
+## [3.1.1](https://github.com/rvagg/mkfiletree/compare/v3.1.0...v3.1.1) (2026-04-28)
+
+### Trivial Changes
+
+* **deps:** bump actions/setup-node from 6 to 6.3.0 ([#9](https://github.com/rvagg/mkfiletree/issues/9)) ([86edbc9](https://github.com/rvagg/mkfiletree/commit/86edbc95d6ababe3ca364d5a2911398fd5dbc633))
+
 ## [3.1.0](https://github.com/rvagg/mkfiletree/compare/v3.0.0...v3.1.0) (2026-02-16)
 
 ### Features
