@@ -1,3 +1,9 @@
+## [3.1.4](https://github.com/rvagg/mkfiletree/compare/v3.1.3...v3.1.4) (2026-06-22)
+
+### Trivial Changes
+
+* **deps:** bump actions/checkout from 6.0.2 to 6.0.3 ([#12](https://github.com/rvagg/mkfiletree/issues/12)) ([3e11326](https://github.com/rvagg/mkfiletree/commit/3e113262bd98ff4552a04ace7b564d47b4d21b1b))
+
 ## [3.1.3](https://github.com/rvagg/mkfiletree/compare/v3.1.2...v3.1.3) (2026-06-04)
 
 ### Trivial Changes
