@@ -1,3 +1,5 @@
+## [3.1.7](https://github.com/rvagg/mkfiletree/compare/v3.1.6...v3.1.7) (2026-07-21)
+
 ## [3.1.6](https://github.com/rvagg/mkfiletree/compare/v3.1.5...v3.1.6) (2026-07-02)
 
 ## [3.1.5](https://github.com/rvagg/mkfiletree/compare/v3.1.4...v3.1.5) (2026-06-23)
