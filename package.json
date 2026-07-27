@@ -8,7 +8,7 @@
     "test",
     "serialize"
   ],
-  "version": "3.1.7",
+  "version": "3.1.8",
   "main": "mkfiletree.js",
   "type": "module",
   "exports": "./mkfiletree.js",
