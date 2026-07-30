@@ -1,8 +1,20 @@
 ## [3.1.8](https://github.com/rvagg/mkfiletree/compare/v3.1.7...v3.1.8) (2026-07-27)
 
+### Trivial Changes
+
+* **deps:** bump the github-actions-minor-patch group with 2 updates ([#17](https://github.com/rvagg/mkfiletree/issues/17)) ([6dce0a1](https://github.com/rvagg/mkfiletree/commit/6dce0a1b95b24721da3a5f0b0c33bb5910ae6135))
+
 ## [3.1.7](https://github.com/rvagg/mkfiletree/compare/v3.1.6...v3.1.7) (2026-07-21)
 
+### Trivial Changes
+
+* **ci:** slow down dependabot, add depsound, pin actions by hash ([#16](https://github.com/rvagg/mkfiletree/issues/16)) ([8dc8879](https://github.com/rvagg/mkfiletree/commit/8dc88793022ca8e1a8525af928163318317c2ef6))
+
 ## [3.1.6](https://github.com/rvagg/mkfiletree/compare/v3.1.5...v3.1.6) (2026-07-02)
+
+### Trivial Changes
+
+* **deps-dev:** bump conventional-changelog-conventionalcommits ([#14](https://github.com/rvagg/mkfiletree/issues/14)) ([bd77835](https://github.com/rvagg/mkfiletree/commit/bd778352ee55e3f5eb4092f6a1e11a71e96c6fe0))
 
 ## [3.1.5](https://github.com/rvagg/mkfiletree/compare/v3.1.4...v3.1.5) (2026-06-23)
 
