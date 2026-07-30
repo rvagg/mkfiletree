@@ -1,3 +1,9 @@
+## [3.1.9](https://github.com/rvagg/mkfiletree/compare/v3.1.8...v3.1.9) (2026-07-30)
+
+### Trivial Changes
+
+* downgrade broken changelog maker, backfill entries ([#18](https://github.com/rvagg/mkfiletree/issues/18)) ([5e237a2](https://github.com/rvagg/mkfiletree/commit/5e237a23160b6c2f4e4b78b85cb92dbbd8ce451e))
+
 ## [3.1.8](https://github.com/rvagg/mkfiletree/compare/v3.1.7...v3.1.8) (2026-07-27)
 
 ### Trivial Changes
