@@ -1,3 +1,9 @@
+## [3.1.12](https://github.com/rvagg/mkfiletree/compare/v3.1.11...v3.1.12) (2026-09-08)
+
+### Trivial Changes
+
+* **deps-dev:** bump @semantic-release/changelog from 6.0.3 to 7.0.0 ([#20](https://github.com/rvagg/mkfiletree/issues/20)) ([9dd78b9](https://github.com/rvagg/mkfiletree/commit/9dd78b97caa403d663e7fe23db6358dd2f49e601))
+
 ## [3.1.11](https://github.com/rvagg/mkfiletree/compare/v3.1.10...v3.1.11) (2026-09-08)
 
 ### Trivial Changes
