@@ -1,3 +1,9 @@
+## [3.1.11](https://github.com/rvagg/mkfiletree/compare/v3.1.10...v3.1.11) (2026-09-08)
+
+### Trivial Changes
+
+* **deps-dev:** bump @semantic-release/git from 10.0.1 to 11.0.1 ([#22](https://github.com/rvagg/mkfiletree/issues/22)) ([cebc381](https://github.com/rvagg/mkfiletree/commit/cebc381666362c9092df76708a2c1a0a3719ab98))
+
 ## [3.1.10](https://github.com/rvagg/mkfiletree/compare/v3.1.9...v3.1.10) (2026-08-10)
 
 ### Trivial Changes
