@@ -1,3 +1,9 @@
+## [3.1.14](https://github.com/rvagg/mkfiletree/compare/v3.1.13...v3.1.14) (2026-11-02)
+
+### Trivial Changes
+
+* **deps:** bump the github-actions-minor-patch group with 2 updates ([#25](https://github.com/rvagg/mkfiletree/issues/25)) ([fffb514](https://github.com/rvagg/mkfiletree/commit/fffb514043a4ce8af96aedb7d667210666fe7d0f))
+
 ## [3.1.13](https://github.com/rvagg/mkfiletree/compare/v3.1.12...v3.1.13) (2026-10-19)
 
 ### Trivial Changes
